@@ -101,7 +101,7 @@ export function EditProfileScreen() {
       </div>
 
       {/* Header */}
-      <div className="relative z-10 bg-slate-900/50 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
+      <div className="relative z-[100] bg-slate-900/95 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
         <div className="px-6 py-5 flex items-center gap-4">
           <button
             onClick={() => navigate(-1)}
@@ -121,13 +121,13 @@ export function EditProfileScreen() {
         {/* Avatar Upload */}
         <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-3xl p-8">
           <h3 className="text-slate-200 mb-6 text-center">Foto Profil</h3>
-          
+
           <div className="flex flex-col items-center">
             {/* Avatar Preview */}
             <div className="relative mb-6">
               {/* Glow ring */}
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-purple-500 rounded-full blur-xl opacity-40 animate-pulse" />
-              
+
               {/* Avatar container */}
               <div className="relative w-32 h-32 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border-2 border-cyan-500/50 flex items-center justify-center overflow-hidden">
                 {avatarPreview ? (
@@ -189,7 +189,7 @@ export function EditProfileScreen() {
         {/* Edit Form */}
         <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-3xl p-6">
           <h3 className="text-slate-200 mb-6">Informasi Akun</h3>
-          
+
           <div className="space-y-5">
             {/* Username */}
             <div>

@@ -277,7 +277,7 @@ export function OperatorTopups() {
       </div>
 
       {/* Header */}
-      <div className="relative z-10 bg-slate-900/50 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
+      <div className="relative z-[100] bg-slate-900/95 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
         <div className="px-6 py-5">
           <div className="mb-4">
             <h1 className="text-slate-200 flex items-center gap-2">

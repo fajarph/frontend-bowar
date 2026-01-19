@@ -150,7 +150,7 @@ export function OperatorMembers() {
       </div>
 
       {/* Header */}
-      <div className="relative z-10 bg-slate-900/50 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
+      <div className="relative z-[100] bg-slate-900/95 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
         <div className="px-6 py-5">
           <div className="mb-4">
             <h1 className="text-slate-200 flex items-center gap-2">
@@ -312,8 +312,8 @@ export function OperatorMembers() {
                       onClick={() => handleOpenTimeDialog(member, 'deduct')}
                       disabled={remainingMinutes <= 0}
                       className={`flex-1 py-3 rounded-2xl transition-all flex items-center justify-center gap-2 ${remainingMinutes > 0
-                          ? 'bg-red-500/20 hover:bg-red-500/30 border border-red-500/50 text-red-400'
-                          : 'bg-slate-800/30 border border-slate-700/50 text-slate-600 cursor-not-allowed'
+                        ? 'bg-red-500/20 hover:bg-red-500/30 border border-red-500/50 text-red-400'
+                        : 'bg-slate-800/30 border border-slate-700/50 text-slate-600 cursor-not-allowed'
                         }`}
                     >
                       <Minus className="w-4 h-4" />
@@ -429,8 +429,8 @@ export function OperatorMembers() {
             <button
               onClick={handleModifyTime}
               className={`flex-1 py-3 rounded-2xl transition-all ${timeAction === 'add'
-                  ? 'bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white shadow-lg shadow-teal-500/30'
-                  : 'bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white shadow-lg shadow-red-500/30'
+                ? 'bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white shadow-lg shadow-teal-500/30'
+                : 'bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white shadow-lg shadow-red-500/30'
                 }`}
             >
               Konfirmasi {timeAction === 'add' ? 'Tambah' : 'Kurang'}

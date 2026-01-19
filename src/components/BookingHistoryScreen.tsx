@@ -106,7 +106,7 @@ export function BookingHistoryScreen() {
       </div>
 
       {/* Header */}
-      <div className="relative z-10 bg-slate-900/50 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
+      <div className="relative z-[100] bg-slate-900/95 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
         <div className="px-6 py-5">
           <h1 className="text-slate-200">Riwayat Booking</h1>
           <p className="text-slate-400 text-sm">Sesi gaming & pembelian waktu Anda</p>
@@ -222,8 +222,8 @@ export function BookingHistoryScreen() {
                         Rp {(booking.totalPrice || 0).toLocaleString()}
                       </span>
                       <span className={`text-xs px-2 py-0.5 rounded-full ${booking.paymentStatus === 'paid'
-                          ? 'bg-green-500/20 text-green-400'
-                          : 'bg-yellow-500/20 text-yellow-400'
+                        ? 'bg-green-500/20 text-green-400'
+                        : 'bg-yellow-500/20 text-yellow-400'
                         }`}>
                         {booking.paymentStatus === 'paid' ? 'Dibayar' : 'Menunggu'}
                       </span>

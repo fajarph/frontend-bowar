@@ -92,48 +92,43 @@ export function CafeDetailsScreen() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
       </div>
 
-      {/* Header with Image */}
-      <div className="relative z-10">
-        {/* Hero Image */}
-        <div className="relative h-80 overflow-hidden">
-          <img
-            src={cafe.image}
-            alt={cafe.name}
-            className="w-full h-full object-cover"
-          />
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-transparent" />
-
-          {/* Back Button */}
+      <div className="relative z-[100] bg-slate-900/95 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
+        <div className="px-6 py-5 flex items-center gap-4">
           <button
             onClick={() => navigate(-1)}
-            className="absolute top-6 left-6 bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 p-2.5 rounded-2xl hover:bg-slate-900 transition-colors"
+            className="bg-slate-800/50 border border-slate-700/50 p-2.5 rounded-2xl hover:bg-slate-800 transition-colors"
           >
             <ArrowLeft className="w-5 h-5 text-slate-300" />
           </button>
-
-          {/* Member Badge */}
-          {context?.user?.role === "member" &&
-            String(context.user.warnet?.id || '') === String(cafeId || '') && (
-              <div className="absolute top-6 right-6 bg-gradient-to-r from-cyan-500/90 to-purple-500/90 backdrop-blur-xl border border-cyan-400/50 rounded-full px-4 py-2 flex items-center gap-2 shadow-lg shadow-cyan-500/30">
-                <Crown className="w-4 h-4 text-white" />
-                <span className="text-white text-sm">
-                  Member Anda
-                </span>
-              </div>
-            )}
-
-          {/* Cafe Info Overlay */}
-          <div className="absolute bottom-6 left-6 right-6">
-            <h1 className="text-slate-100 text-3xl mb-2">
-              {cafe.name}
-            </h1>
-            <div className="flex items-start gap-2">
-              <MapPin className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
-              <p className="text-slate-300">{cafe.location}</p>
+          <div>
+            <h1 className="text-slate-200 text-xl">{cafe.name}</h1>
+            <div className="flex items-center gap-2">
+              <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+              <p className="text-slate-400 text-xs">{cafe.location}</p>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Hero Image Section (No longer contains the main title/back button) */}
+      <div className="relative z-10 h-64 overflow-hidden mb-6">
+        <img
+          src={cafe.image}
+          alt={cafe.name}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/50 to-transparent" />
+
+        {/* Member Badge - Still on Image */}
+        {context?.user?.role === "member" &&
+          String(context.user.warnet?.id || '') === String(cafeId || '') && (
+            <div className="absolute bottom-6 right-6 bg-gradient-to-r from-cyan-500/90 to-purple-500/90 backdrop-blur-xl border border-cyan-400/50 rounded-full px-4 py-2 flex items-center gap-2 shadow-lg shadow-cyan-500/30">
+              <Crown className="w-4 h-4 text-white" />
+              <span className="text-white text-sm">
+                Member Anda
+              </span>
+            </div>
+          )}
       </div>
 
       {/* Content */}

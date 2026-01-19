@@ -138,7 +138,7 @@ export function OperatorPendingBookings() {
             </div>
 
             {/* Header */}
-            <div className="relative z-10 bg-slate-900/50 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
+            <div className="relative z-[100] bg-slate-900/95 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
                 <div className="px-6 py-5">
                     <h1 className="text-slate-200 flex items-center gap-2 mb-1">
                         <Calendar className="w-6 h-6 text-purple-400" />
@@ -234,11 +234,11 @@ export function OperatorPendingBookings() {
                                     <div className="mb-4">
                                         <p className="text-slate-300 text-sm mb-2">Bukti Transfer:</p>
                                         <div
-                                            onClick={() => setImageModal(`${import.meta.env.VITE_API_URL}${booking.paymentProofImage}`)}
+                                            onClick={() => setImageModal(`http://localhost:3333${booking.paymentProofImage}`)}
                                             className="relative cursor-pointer group rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all"
                                         >
                                             <img
-                                                src={`${import.meta.env.VITE_API_URL}${booking.paymentProofImage}`}
+                                                src={`http://localhost:3333${booking.paymentProofImage}`}
                                                 alt="Payment Proof"
                                                 className="w-full h-auto max-h-64 object-cover"
                                             />
@@ -293,24 +293,22 @@ export function OperatorPendingBookings() {
             </div>
 
             {/* Image Modal */}
-            {
-                imageModal && (
-                    <div
-                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-                        onClick={() => setImageModal(null)}
-                    >
-                        <div className="relative max-w-4xl max-h-[90vh]">
-                            <img src={imageModal} alt="Payment Proof Fullscreen" className="w-full h-full object-contain rounded-2xl" />
-                            <button
-                                onClick={() => setImageModal(null)}
-                                className="absolute top-4 right-4 bg-red-500/80 hover:bg-red-500 text-white p-2 rounded-full"
-                            >
-                                <XCircle className="w-6 h-6" />
-                            </button>
-                        </div>
+            {imageModal && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+                    onClick={() => setImageModal(null)}
+                >
+                    <div className="relative max-w-4xl max-h-[90vh]">
+                        <img src={imageModal} alt="Payment Proof Fullscreen" className="w-full h-full object-contain rounded-2xl" />
+                        <button
+                            onClick={() => setImageModal(null)}
+                            className="absolute top-4 right-4 bg-red-500/80 hover:bg-red-500 text-white p-2 rounded-full"
+                        >
+                            <XCircle className="w-6 h-6" />
+                        </button>
                     </div>
-                )
-            }
+                </div>
+            )}
 
             {/* Confirm Modal */}
             <ConfirmModal
@@ -329,6 +327,6 @@ export function OperatorPendingBookings() {
             />
 
             <OperatorBottomNav />
-        </div >
+        </div>
     );
 }

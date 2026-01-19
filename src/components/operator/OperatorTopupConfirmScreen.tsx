@@ -190,7 +190,7 @@ export function OperatorTopupConfirmScreen() {
   return (
     <div className="min-h-screen pb-24 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       {/* Header */}
-      <div className="relative z-10 bg-slate-900/50 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
+      <div className="relative z-[100] bg-slate-900/95 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
         <div className="px-6 py-5">
           <div className="flex items-center gap-4">
             <button

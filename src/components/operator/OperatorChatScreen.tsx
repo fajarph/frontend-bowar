@@ -147,7 +147,7 @@ export function OperatorChatScreen() {
     if (!selectedUser) {
         return (
             <div className="min-h-screen pb-24 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-                <div className="relative z-10 bg-slate-900/50 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
+                <div className="relative z-[100] bg-slate-900/95 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
                     <div className="px-6 py-5">
                         <h1 className="text-slate-200 flex items-center gap-2">
                             <MessageCircle className="w-6 h-6 text-purple-400" />
@@ -218,7 +218,7 @@ export function OperatorChatScreen() {
 
     return (
         <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-            <div className="relative z-10 bg-slate-900/50 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
+            <div className="relative z-[100] bg-slate-900/95 backdrop-blur-xl border-b border-slate-800/50 sticky top-0">
                 <div className="px-6 py-5 flex items-center gap-4">
                     <button
                         onClick={() => setSelectedUser(null)}
@@ -265,7 +265,7 @@ export function OperatorChatScreen() {
                 <div ref={messagesEndRef} />
             </div>
 
-            <div className="relative z-10 bg-slate-900/90 backdrop-blur-xl border-t border-slate-800/50 p-6">
+            <div className="relative z-[100] bg-slate-900/95 backdrop-blur-xl border-t border-slate-800/50 p-6 sticky bottom-0">
                 <div className="flex items-end gap-3">
                     <div className="flex-1">
                         <textarea
