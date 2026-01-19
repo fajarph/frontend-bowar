@@ -353,11 +353,11 @@ export function OperatorBookings() {
 
                         {booking.paymentProofImage && (
                           <div
-                            onClick={() => setImageModal(`http://localhost:3333${booking.paymentProofImage}`)}
+                            onClick={() => setImageModal(`${import.meta.env.VITE_API_URL}${booking.paymentProofImage}`)}
                             className="relative cursor-pointer group rounded-xl overflow-hidden border border-slate-700/50 hover:border-purple-500/50 transition-all max-w-[200px]"
                           >
                             <img
-                              src={`http://localhost:3333${booking.paymentProofImage}`}
+                              src={`${import.meta.env.VITE_API_URL}${booking.paymentProofImage}`}
                               alt="Payment Proof"
                               className="w-full h-24 object-cover"
                             />
@@ -368,10 +368,11 @@ export function OperatorBookings() {
                         )}
                       </div>
                     </div>
-                  )}
+                  )
+                  }
 
                   {/* Move Actions Here for better UX when there is payment proof */}
-                  <div className="mt-4 flex items-center justify-end gap-3 pt-4 border-t border-slate-800/50">
+                  < div className="mt-4 flex items-center justify-end gap-3 pt-4 border-t border-slate-800/50" >
                     <div className="flex items-center gap-2">
                       {booking.paymentStatus === 'pending' && booking.status !== 'cancelled' && (
                         <>
@@ -398,27 +399,30 @@ export function OperatorBookings() {
               );
             })}
           </div>
-        )}
-      </div>
+        )
+        }
+      </div >
 
       {/* Bottom Navigation */}
       {/* Modal Components */}
-      {imageModal && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-          onClick={() => setImageModal(null)}
-        >
-          <div className="relative max-w-4xl max-h-[90vh]">
-            <img src={imageModal} alt="Payment Proof Fullscreen" className="w-full h-full object-contain rounded-2xl" />
-            <button
-              onClick={() => setImageModal(null)}
-              className="absolute top-4 right-4 bg-red-500/80 hover:bg-red-500 text-white p-2 rounded-full"
-            >
-              <XCircle className="w-6 h-6" />
-            </button>
+      {
+        imageModal && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            onClick={() => setImageModal(null)}
+          >
+            <div className="relative max-w-4xl max-h-[90vh]">
+              <img src={imageModal} alt="Payment Proof Fullscreen" className="w-full h-full object-contain rounded-2xl" />
+              <button
+                onClick={() => setImageModal(null)}
+                className="absolute top-4 right-4 bg-red-500/80 hover:bg-red-500 text-white p-2 rounded-full"
+              >
+                <XCircle className="w-6 h-6" />
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )
+      }
 
       <ConfirmModal
         isOpen={confirmModal.isOpen}
@@ -436,6 +440,6 @@ export function OperatorBookings() {
       />
 
       <OperatorBottomNav />
-    </div>
+    </div >
   );
 }

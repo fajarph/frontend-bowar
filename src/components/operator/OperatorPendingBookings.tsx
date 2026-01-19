@@ -234,11 +234,11 @@ export function OperatorPendingBookings() {
                                     <div className="mb-4">
                                         <p className="text-slate-300 text-sm mb-2">Bukti Transfer:</p>
                                         <div
-                                            onClick={() => setImageModal(`http://localhost:3333${booking.paymentProofImage}`)}
+                                            onClick={() => setImageModal(`${import.meta.env.VITE_API_URL}${booking.paymentProofImage}`)}
                                             className="relative cursor-pointer group rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all"
                                         >
                                             <img
-                                                src={`http://localhost:3333${booking.paymentProofImage}`}
+                                                src={`${import.meta.env.VITE_API_URL}${booking.paymentProofImage}`}
                                                 alt="Payment Proof"
                                                 className="w-full h-auto max-h-64 object-cover"
                                             />
@@ -293,22 +293,24 @@ export function OperatorPendingBookings() {
             </div>
 
             {/* Image Modal */}
-            {imageModal && (
-                <div
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-                    onClick={() => setImageModal(null)}
-                >
-                    <div className="relative max-w-4xl max-h-[90vh]">
-                        <img src={imageModal} alt="Payment Proof Fullscreen" className="w-full h-full object-contain rounded-2xl" />
-                        <button
-                            onClick={() => setImageModal(null)}
-                            className="absolute top-4 right-4 bg-red-500/80 hover:bg-red-500 text-white p-2 rounded-full"
-                        >
-                            <XCircle className="w-6 h-6" />
-                        </button>
+            {
+                imageModal && (
+                    <div
+                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+                        onClick={() => setImageModal(null)}
+                    >
+                        <div className="relative max-w-4xl max-h-[90vh]">
+                            <img src={imageModal} alt="Payment Proof Fullscreen" className="w-full h-full object-contain rounded-2xl" />
+                            <button
+                                onClick={() => setImageModal(null)}
+                                className="absolute top-4 right-4 bg-red-500/80 hover:bg-red-500 text-white p-2 rounded-full"
+                            >
+                                <XCircle className="w-6 h-6" />
+                            </button>
+                        </div>
                     </div>
-                </div>
-            )}
+                )
+            }
 
             {/* Confirm Modal */}
             <ConfirmModal
@@ -327,6 +329,6 @@ export function OperatorPendingBookings() {
             />
 
             <OperatorBottomNav />
-        </div>
+        </div >
     );
 }
