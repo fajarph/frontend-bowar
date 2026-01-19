@@ -1,0 +1,55 @@
+# HomeScreen Translation Mapping (English → Indonesian)
+
+## Header Section
+"Total Playing Time" → "Total Waktu Bermain"
+
+## Welcome Section  
+"Welcome back, {username}!" → "Selamat datang kembali, {username}!"
+"Choose your gaming warnet" → "Pilih warnet gaming Anda"
+
+## Map Button
+"View Warnet Map" → "Lihat Peta Warnet"
+"Find nearby locations" → "Temukan lokasi terdekat"
+
+## Cafe Cards
+"Regular Price" → "Harga Regular"
+"Member Price" → "Harga Member"
+"Available PCs" → "PC Tersedia"
+"Units" → "Unit"
+"View in Maps" → "Lihat di Maps"
+
+## Empty State
+"No warnets available" → "Tidak ada warnet tersedia"
+"Check back soon for new gaming spots!" → "Cek kembali segera untuk spot gaming baru!"
+
+## Add Time Dialog
+"Add Stored Time" → "Tambah Waktu Tersimpan"
+"Payment Method" → "Metode Pembayaran"
+"Payment Success" → "Pembayaran Berhasil"
+"Select Warnet" → "Pilih Warnet"
+"Choose a warnet" → "Pilih warnet"
+"Hours to Add" → "Jam untuk Ditambah"
+"hours" → "jam"
+"Price per hour" → "Harga per jam"
+"Total" → "Total"
+"Cancel" → "Batal"
+"Proceed to Payment" → "Lanjut ke Pembayaran"
+"Duration" → "Durasi"
+"hour(s)" → "jam"
+"Total Payment" → "Total Pembayaran"
+"Choose Payment Method" → "Pilih Metode Pembayaran"
+"Back" → "Kembali"
+"Confirm Payment" → "Konfirmasi Pembayaran"
+"Payment Successful!" → "Pembayaran Berhasil!"
+"{hours} hour(s) has been added to your wallet" → "{hours} jam telah ditambahkan ke wallet Anda"
+"Amount Paid" → "Jumlah Dibayar"
+
+## Payment Methods (keep English names)
+"Bank Transfer" → "Transfer Bank"
+"Credit Card" → "Kartu Kredit"
+
+## Toast Messages
+"Please select a warnet" → "Mohon pilih warnet"
+"Please select a payment method" → "Mohon pilih metode pembayaran"  
+"Cafe not found" → "Warnet tidak ditemukan"
+"Payment successful! {hours} hour(s) added to your wallet" → "Pembayaran berhasil! {hours} jam ditambahkan ke wallet Anda"

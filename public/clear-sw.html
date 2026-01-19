@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Service Worker - Bowar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #020618;
+            color: #fff;
+        }
+        button {
+            background: #0d6efd;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #0b5ed7;
+        }
+        #status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #1e293b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clear Service Worker & Cache</h1>
+    <p>Gunakan tool ini untuk menghapus service worker dan cache jika icon PWA tidak berubah.</p>
+    
+    <button onclick="clearSW()">Clear Service Worker</button>
+    <button onclick="clearCache()">Clear All Cache</button>
+    <button onclick="reload()">Reload Page</button>
+    
+    <div id="status"></div>
+
+    <script>
+        async function clearSW() {
+            const status = document.getElementById('status');
+            try {
+                if ('serviceWorker' in navigator) {
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    for (let registration of registrations) {
+                        await registration.unregister();
+                        status.innerHTML = `<p style="color: #4ade80;">✅ Service Worker di-unregister: ${registration.scope}</p>`;
+                    }
+                    if (registrations.length === 0) {
+                        status.innerHTML = '<p style="color: #fbbf24;">⚠️ Tidak ada service worker yang terdaftar</p>';
+                    }
+                } else {
+                    status.innerHTML = '<p style="color: #ef4444;">❌ Browser tidak mendukung Service Worker</p>';
+                }
+            } catch (error) {
+                status.innerHTML = `<p style="color: #ef4444;">❌ Error: ${error.message}</p>`;
+            }
+        }
+
+        async function clearCache() {
+            const status = document.getElementById('status');
+            try {
+                if ('caches' in window) {
+                    const cacheNames = await caches.keys();
+                    await Promise.all(cacheNames.map(name => caches.delete(name)));
+                    status.innerHTML = `<p style="color: #4ade80;">✅ Cache dihapus: ${cacheNames.length} cache(s)</p>`;
+                } else {
+                    status.innerHTML = '<p style="color: #ef4444;">❌ Browser tidak mendukung Cache API</p>';
+                }
+            } catch (error) {
+                status.innerHTML = `<p style="color: #ef4444;">❌ Error: ${error.message}</p>`;
+            }
+        }
+
+        function reload() {
+            window.location.reload();
+        }
+
+        // Auto check on load
+        window.addEventListener('load', async () => {
+            const status = document.getElementById('status');
+            if ('serviceWorker' in navigator) {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                if (registrations.length > 0) {
+                    status.innerHTML = `<p style="color: #fbbf24;">⚠️ Ditemukan ${registrations.length} service worker yang terdaftar. Klik "Clear Service Worker" untuk menghapusnya.</p>`;
+                } else {
+                    status.innerHTML = '<p style="color: #4ade80;">✅ Tidak ada service worker yang terdaftar</p>';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
